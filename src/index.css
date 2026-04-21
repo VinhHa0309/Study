@@ -1,0 +1,7 @@
+@import "tailwindcss";
+
+/* Bạn có thể thêm các tùy chỉnh font ở dưới nếu muốn */
+body {
+  @apply bg-[#F8FAFC];
+  font-family: "Inter", sans-serif;
+}

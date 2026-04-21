@@ -1,0 +1,818 @@
+﻿========================================================
+FILE: D:\Vha.JS\Study\src\components\home\CourseCard.jsx
+========================================================
+import { Plus } from "lucide-react";
+
+const CourseCard = ({
+  title,
+  description,
+  lessons,
+  projects,
+  price,
+  image,
+  variant = "vertical",
+  icon: IconTag,
+}) => {
+  if (variant === "horizontal") {
+    return (
+      <div className="flex flex-col md:flex-row bg-white rounded-2xl md:rounded-3xl overflow-hidden shadow-sm border border-gray-100 col-span-1 md:col-span-2 hover:shadow-md transition-shadow duration-300">
+        {/* Image Section */}
+        <div className="w-full md:w-1/2 relative h-48 md:h-auto">
+          <img src={image} alt={title} className="w-full h-full object-cover" />
+          <div className="absolute top-3 md:top-4 left-3 md:left-4 bg-[#0A1629]/60 backdrop-blur-md px-2 md:px-3 py-1 rounded text-[9px] md:text-[10px] font-bold text-white uppercase tracking-wide">
+            Honors Level
+          </div>
+        </div>
+
+        {/* Content Section */}
+        <div className="w-full md:w-1/2 p-4 md:p-8 flex flex-col justify-between">
+          <div>
+            <h3 className="text-lg md:text-2xl font-bold text-[#1A2B47] mb-2 md:mb-3 line-clamp-2">
+              {title}
+            </h3>
+            <p className="text-gray-500 text-xs md:text-sm leading-relaxed mb-4 md:mb-6 line-clamp-3 md:line-clamp-none">
+              {description}
+            </p>
+
+            {/* Tags */}
+            <div className="flex gap-2 flex-wrap">
+              <span className="bg-gray-100 text-[9px] md:text-[10px] font-bold text-gray-500 px-2 md:px-3 py-1 rounded uppercase whitespace-nowrap">
+                {lessons} Lessons
+              </span>
+              <span className="bg-gray-100 text-[9px] md:text-[10px] font-bold text-gray-500 px-2 md:px-3 py-1 rounded uppercase whitespace-nowrap">
+                {projects} Projects
+              </span>
+            </div>
+          </div>
+
+          {/* Footer Section */}
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4 mt-6 md:mt-8">
+            {/* Students */}
+            <div className="flex -space-x-2">
+              {[1, 2, 3].map((i) => (
+                <div
+                  key={i}
+                  className="w-6 md:w-8 h-6 md:h-8 rounded-full border-2 border-white bg-gray-200 flex-shrink-0"
+                />
+              ))}
+              <span className="pl-2 md:pl-4 text-[8px] md:text-[10px] text-gray-400 font-bold self-center whitespace-nowrap">
+                +2.4k students
+              </span>
+            </div>
+            {/* Price */}
+            <span className="text-lg md:text-xl font-bold text-[#1A2B47] w-full sm:w-auto text-right">
+              ${price}
+            </span>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  // Vertical Variant
+  return (
+    <div className="bg-white p-5 md:p-8 rounded-2xl md:rounded-3xl shadow-sm border border-gray-100 flex flex-col justify-between h-full hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 group">
+      <div>
+        {/* Icon */}
+        <div className="w-9 md:w-10 h-9 md:h-10 bg-[#FFF4ED] rounded-lg flex items-center justify-center text-[#F08A4B] font-bold mb-4 md:mb-6 group-hover:scale-110 transition-transform duration-300">
+          {IconTag}
+        </div>
+
+        {/* Title */}
+        <h3 className="text-base md:text-xl font-bold text-[#1A2B47] mb-2 md:mb-3 line-clamp-2">
+          {title}
+        </h3>
+
+        {/* Description */}
+        <p className="text-gray-500 text-xs md:text-sm leading-relaxed line-clamp-3 md:line-clamp-none">
+          {description}
+        </p>
+      </div>
+
+      {/* Footer */}
+      <div className="flex justify-between items-center mt-8 md:mt-12 gap-3">
+        <span className="text-base md:text-lg font-bold text-[#1A2B47] flex-shrink-0">
+          ${price}
+        </span>
+        <button className="p-2 border border-gray-100 rounded-xl hover:bg-gray-50 hover:border-gray-200 active:scale-95 transition-all duration-200 flex-shrink-0">
+          <Plus className="w-4 md:w-5 h-4 md:h-5 text-gray-400 group-hover:text-gray-600 transition-colors" />
+        </button>
+      </div>
+    </div>
+  );
+};
+
+export default CourseCard;
+
+
+
+========================================================
+FILE: D:\Vha.JS\Study\src\components\home\CTASection.jsx
+========================================================
+const CTASection = () => {
+  return (
+    <section className="py-8 md:py-12 lg:py-16 px-4 md:px-6 lg:px-8">
+      <div className="bg-gradient-to-br from-[#051124] via-[#0a1f2e] to-[#051124] rounded-3xl md:rounded-4xl lg:rounded-[48px] p-8 md:p-12 lg:p-16 text-center relative overflow-hidden group">
+        {/* Glow Effect - Responsive */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 bg-blue-500/15 blur-[80px] md:blur-[100px] lg:blur-[120px] rounded-full opacity-60 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+        {/* Accent Glow */}
+        <div className="absolute -top-20 -right-20 w-40 h-40 md:w-52 md:h-52 bg-cyan-400/5 blur-[60px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+        {/* Content Container */}
+        <div className="relative z-10">
+          {/* Main Heading */}
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 md:mb-6 lg:mb-8 leading-tight">
+            Start Your Mathematical
+            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#FFA24E] to-cyan-400">
+              Journey Today
+            </span>
+          </h2>
+
+          {/* Subheading */}
+          <p className="text-gray-400 text-sm md:text-base lg:text-lg mb-8 md:mb-10 lg:mb-12 max-w-2xl mx-auto leading-relaxed px-2">
+            Join thousands of students mastering complex concepts with precision
+            and clarity. Transform your learning experience starting now.
+          </p>
+
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row justify-center gap-3 md:gap-4 lg:gap-6 flex-wrap">
+            {/* Primary Button */}
+            <button className="bg-[#FFA24E] hover:bg-[#F08A4B] active:scale-95 text-[#051124] font-bold px-6 md:px-8 lg:px-10 py-3 md:py-4 lg:py-5 rounded-lg md:rounded-xl transition-all duration-300 shadow-lg shadow-orange-500/30 hover:shadow-xl hover:shadow-orange-500/40 hover:-translate-y-1 group/btn w-full sm:w-auto">
+              <span className="flex items-center justify-center gap-2">
+                <svg
+                  className="w-5 h-5 md:w-6 md:h-6 group-hover/btn:translate-x-1 transition-transform"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 10 10.293 5.707a1 1 0 010-1.414z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+                Enroll Now
+              </span>
+            </button>
+
+            {/* Secondary Button */}
+            <button className="bg-[#1A2B47] hover:bg-[#243B5E] active:scale-95 text-white font-bold px-6 md:px-8 lg:px-10 py-3 md:py-4 lg:py-5 rounded-lg md:rounded-xl border border-white/20 hover:border-white/40 transition-all duration-300 hover:-translate-y-1 w-full sm:w-auto">
+              <span className="flex items-center justify-center gap-2">
+                <svg
+                  className="w-5 h-5 md:w-6 md:h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"
+                  />
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
+                </svg>
+                Trial Session
+              </span>
+            </button>
+          </div>
+
+          {/* Trust Badge */}
+          <div className="mt-10 md:mt-14 lg:mt-16 pt-8 md:pt-10 border-t border-white/10">
+            <p className="text-gray-500 text-xs md:text-sm font-medium mb-3 md:mb-4">
+              âœ“ Trusted by 2,400+ students worldwide
+            </p>
+            <div className="flex justify-center items-center gap-2 md:gap-3 opacity-70 hover:opacity-100 transition-opacity">
+              <div className="flex -space-x-1">
+                {[...Array(4)].map((_, i) => (
+                  <div
+                    key={i}
+                    className="w-6 h-6 md:w-8 md:h-8 rounded-full border-2 border-[#051124] bg-gradient-to-br from-[#FFA24E] to-cyan-400"
+                    style={{
+                      opacity: 0.8 - i * 0.15,
+                      background: `linear-gradient(135deg, hsl(${30 + i * 20}, 100%, 60%}), hsl(${190 + i * 5}, 100%, 60%})`,
+                    }}
+                  />
+                ))}
+              </div>
+              <span className="text-gray-400 text-xs md:text-sm">
+                And more joining every week
+              </span>
+            </div>
+          </div>
+        </div>
+
+        {/* Decorative Border */}
+        <div className="absolute inset-0 rounded-3xl md:rounded-4xl lg:rounded-[48px] pointer-events-none border border-white/5 group-hover:border-white/10 transition-colors duration-500"></div>
+      </div>
+    </section>
+  );
+};
+
+export default CTASection;
+
+
+
+========================================================
+FILE: D:\Vha.JS\Study\src\components\home\FeaturedSection.jsx
+========================================================
+import CourseCard from "./CourseCard";
+import { ArrowRight, BookOpen, Zap } from "lucide-react";
+
+const FeaturedSection = () => {
+  return (
+    <section className="py-8 md:py-12 lg:py-16 px-4 md:px-6 lg:px-8">
+      {/* Header Section - Responsive */}
+      <div className="mb-8 md:mb-10 lg:mb-16 flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4 sm:gap-6">
+        <div className="flex-1">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#1A2B47] mb-1 md:mb-2 leading-tight">
+            Featured{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F08A4B] via-orange-500 to-[#F08A4B]">
+              Courses
+            </span>
+          </h2>
+          <p className="text-gray-500 text-xs sm:text-sm md:text-base mt-1 md:mt-2">
+            Structured pathways for every mathematical stage.
+          </p>
+        </div>
+
+        {/* View Catalog Button */}
+        <button className="inline-flex items-center justify-center gap-2 px-4 md:px-6 py-2 md:py-2.5 text-[#F08A4B] font-bold text-xs md:text-sm hover:bg-[#F08A4B]/10 rounded-lg transition-all duration-300 group whitespace-nowrap hover:gap-3">
+          View Catalog
+          <ArrowRight className="w-3.5 h-3.5 md:w-4 md:h-4 group-hover:translate-x-1 transition-transform duration-300" />
+        </button>
+      </div>
+
+      {/* Grid Layout - Responsive */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5 lg:gap-6">
+        {/* Large Horizontal Card (Calculus) - col-span-2 */}
+        <div className="md:col-span-2">
+          <CourseCard
+            variant="horizontal"
+            title="The Architecture of Calculus"
+            description="Master limits, derivatives, and integrals through physical visualization and proof-based reasoning."
+            lessons="128"
+            projects="32"
+            price="199.00"
+            image="https://images.unsplash.com/photo-1635070041078-e3fb4fe365c9?w=900&q=80&auto=format&fit=crop"
+          />
+        </div>
+
+        {/* Small Card 1 (Linear Algebra) */}
+        <div className="md:col-span-1">
+          <CourseCard
+            title="Linear Algebra"
+            description="Vector spaces and matrix transformations for data science applications."
+            price="149.00"
+            icon={<Zap className="w-6 h-6" />}
+          />
+        </div>
+
+        {/* Small Card 2 (Statistics) */}
+        <div className="md:col-span-1">
+          <CourseCard
+            title="Statistical Logic"
+            description="Advanced probability and statistical inference for researchers."
+            price="129.00"
+            icon="đŸ“"
+          />
+        </div>
+
+        {/* Banner Competitive Track - col-span-2 on tablet+ */}
+        <div className="col-span-1 md:col-span-2 bg-gradient-to-br from-[#0A1629] via-[#0f1d2d] to-[#051124] rounded-2xl md:rounded-3xl lg:rounded-[32px] p-6 md:p-8 lg:p-10 relative overflow-hidden group border border-white/5 hover:border-white/15 transition-all duration-500">
+          {/* Background Glows */}
+          <div className="absolute top-1/2 right-0 -translate-y-1/2 w-48 md:w-64 lg:w-96 h-48 md:h-64 lg:h-96 bg-amber-500/15 blur-[80px] md:blur-[100px] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          <div className="absolute -left-20 -top-20 w-40 h-40 bg-cyan-400/10 blur-[60px] rounded-full opacity-30 group-hover:opacity-60 transition-opacity duration-500"></div>
+
+          {/* Content Container */}
+          <div className="relative z-10 space-y-3 md:space-y-4 lg:space-y-6 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+            {/* Left Content */}
+            <div className="space-y-3 md:space-y-4 lg:space-y-6 flex-1 max-w-sm md:max-w-md">
+              {/* Badge */}
+              <div className="inline-flex items-center gap-2 px-3 md:px-4 py-1.5 md:py-2 rounded-lg md:rounded-xl bg-amber-500/20 border border-amber-500/40 backdrop-blur-sm group-hover:border-amber-500/60 transition-all duration-300">
+                <span className="text-amber-400 text-xs md:text-sm font-bold">
+                  đŸ†
+                </span>
+                <span className="text-amber-300 text-xs md:text-sm font-bold uppercase tracking-wider">
+                  Competitive
+                </span>
+              </div>
+
+              {/* Title */}
+              <h3 className="text-xl md:text-2xl lg:text-3xl font-bold text-white leading-tight">
+                Join the Competitive Track
+              </h3>
+
+              {/* Description */}
+              <p className="text-gray-400 text-xs md:text-sm lg:text-base leading-relaxed">
+                Preparation for AMC, AIME, and International Mathematical
+                Olympiads with expert guidance.
+              </p>
+
+              {/* Buttons */}
+              <div className="flex flex-col sm:flex-row gap-2 md:gap-3 pt-2 md:pt-4">
+                <button className="bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-700 hover:to-amber-800 active:scale-95 text-white px-4 md:px-6 py-2 md:py-3 rounded-lg md:rounded-xl font-bold text-xs md:text-sm transition-all duration-300 hover:shadow-lg hover:shadow-amber-600/30 flex items-center justify-center gap-2">
+                  <Zap className="w-3.5 h-3.5 md:w-4 md:h-4" />
+                  Start Assessment
+                </button>
+                <button className="bg-white/10 hover:bg-white/20 border border-white/20 hover:border-white/40 text-white px-4 md:px-6 py-2 md:py-3 rounded-lg md:rounded-xl font-bold text-xs md:text-sm transition-all duration-300 flex items-center justify-center gap-2 active:scale-95">
+                  <BookOpen className="w-3.5 h-3.5 md:w-4 md:h-4" />
+                  Details
+                </button>
+              </div>
+
+              {/* Stats - Hidden on mobile, shown on tablet+ */}
+              <div className="hidden md:flex gap-4 md:gap-6 pt-4 md:pt-6 border-t border-white/10">
+                <div className="flex-1">
+                  <p className="text-amber-400 font-bold text-sm md:text-base lg:text-lg">
+                    500+
+                  </p>
+                  <p className="text-gray-500 text-xs md:text-sm">Problems</p>
+                </div>
+                <div className="flex-1">
+                  <p className="text-cyan-400 font-bold text-sm md:text-base lg:text-lg">
+                    12 Weeks
+                  </p>
+                  <p className="text-gray-500 text-xs md:text-sm">Program</p>
+                </div>
+                <div className="flex-1">
+                  <p className="text-white font-bold text-sm md:text-base lg:text-lg">
+                    24/7
+                  </p>
+                  <p className="text-gray-500 text-xs md:text-sm">Support</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Trophy Emoji - Responsive Position */}
+            <div className="absolute md:relative right-4 md:right-0 top-4 md:top-1/2 md:-translate-y-1/2 md:flex-shrink-0 opacity-40 md:opacity-70 group-hover:opacity-100 transition-opacity duration-500 transform md:transform-none">
+              <span className="text-5xl md:text-6xl lg:text-8xl filter drop-shadow-xl inline-block">
+                đŸ†
+              </span>
+            </div>
+          </div>
+
+          {/* Border Glow Effect */}
+          <div className="absolute inset-0 rounded-2xl md:rounded-3xl lg:rounded-[32px] pointer-events-none border border-transparent group-hover:border-amber-500/20 transition-colors duration-500"></div>
+        </div>
+      </div>
+
+      {/* Bottom CTA Section */}
+      <div className="mt-12 md:mt-16 lg:mt-20 p-6 md:p-8 lg:p-10 rounded-2xl md:rounded-3xl bg-gradient-to-r from-[#F08A4B]/5 via-transparent to-cyan-500/5 border border-[#F08A4B]/20 backdrop-blur-sm hover:border-[#F08A4B]/40 transition-all duration-300">
+        <div className="text-center space-y-3 md:space-y-4">
+          <h3 className="text-lg md:text-xl lg:text-2xl font-bold text-[#1A2B47]">
+            Can't decide? Try our recommendation quiz
+          </h3>
+          <p className="text-gray-500 text-xs md:text-sm lg:text-base max-w-2xl mx-auto">
+            Get personalized course suggestions based on your current skills and
+            learning goals
+          </p>
+          <button className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-[#F08A4B] to-orange-500 hover:from-[#F08A4B]/90 hover:to-orange-600 active:scale-95 text-white px-6 md:px-8 py-2.5 md:py-3 rounded-lg md:rounded-xl font-bold text-xs md:text-sm transition-all duration-300 shadow-lg shadow-orange-500/20 hover:shadow-xl hover:shadow-orange-500/30">
+            Take the Quiz
+            <ArrowRight className="w-3.5 h-3.5 md:w-4 md:h-4" />
+          </button>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default FeaturedSection;
+
+
+
+========================================================
+FILE: D:\Vha.JS\Study\src\components\home\Hero.jsx
+========================================================
+import { Search } from "lucide-react";
+
+const Hero = () => {
+  return (
+    <section className="flex flex-col lg:flex-row items-center justify-between py-8 sm:py-12 md:py-16 gap-6 sm:gap-8 md:gap-12 px-4 sm:px-6 md:px-0">
+      {/* Cá»˜T TRĂI */}
+      <div className="flex-1 space-y-6 sm:space-y-8 w-full">
+        <div className="inline-flex items-center bg-[#FDF2E9] border border-[#FAD7BC] px-3 py-1 rounded-full text-center flex-wrap">
+          <span className="w-2 h-2 bg-[#F08A4B] rounded-full mr-2 flex-shrink-0"></span>
+          <span className="text-xs sm:text-sm font-semibold text-[#8A4D26]">
+            New: Multivariable Calculus Series
+          </span>
+        </div>
+
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#1A2B47] leading-tight">
+          Master the Language of the <br />
+          <span className="text-[#F08A4B]">Universe</span>
+        </h1>
+
+        <p className="text-gray-500 text-base sm:text-lg leading-relaxed font-medium max-w-lg">
+          Experience mathematical rigor through immersive 3D visualizations and
+          interactive problem sets designed for academic excellence.
+        </p>
+
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-3 w-full">
+          <div className="relative flex-1 min-w-0 sm:max-w-sm">
+            <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5 flex-shrink-0" />
+            <input
+              type="text"
+              placeholder="What do you want to learn today?"
+              className="w-full bg-white border border-gray-200 pl-12 pr-4 py-3 sm:py-4 rounded-lg shadow-sm focus:outline-none text-sm sm:text-base"
+            />
+          </div>
+          <button className="bg-[#FFA24E] text-white font-bold px-6 sm:px-8 py-3 sm:py-4 rounded-lg shadow-lg shadow-orange-200 whitespace-nowrap text-sm sm:text-base hover:bg-[#FF8F33] transition">
+            Explore
+          </button>
+        </div>
+
+        <div className="flex flex-col xs:flex-row gap-8 sm:gap-12 pt-2 sm:pt-4">
+          <div>
+            <p className="text-2xl sm:text-3xl font-bold text-[#1A2B47]">
+              15k+
+            </p>
+            <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mt-1">
+              Active Students
+            </p>
+          </div>
+          <div className="border-l border-gray-200 pl-8 sm:pl-12">
+            <p className="text-2xl sm:text-3xl font-bold text-[#1A2B47]">
+              200+
+            </p>
+            <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mt-1">
+              Modules
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* Cá»˜T PHáº¢I */}
+      <div className="flex-1 relative w-full min-h-80 sm:min-h-96">
+        <div className="relative rounded-2xl sm:rounded-3xl lg:rounded-[40px] overflow-hidden shadow-2xl bg-[#0A1629] w-full h-80 sm:h-96 md:h-[400px]">
+          <img
+            src="https://framerusercontent.com/images/3D_Math_Illustration.jpg"
+            alt="Math 3D"
+            className="w-full h-full object-cover opacity-80"
+          />
+
+          {/* Lá»›p phá»§ cĂ´ng thá»©c LaTeX */}
+          <div className="absolute bottom-3 sm:bottom-6 left-3 sm:left-6 right-3 sm:right-6 bg-white/10 backdrop-blur-md border border-white/20 p-3 sm:p-4 rounded-lg sm:rounded-2xl">
+            <p className="text-white text-xs sm:text-sm font-mono text-center break-words">
+              {"$$\int_{0}^{\infty} e^{-x^2} dx = \frac{\sqrt{\pi}}{2}$$"}
+            </p>
+          </div>
+        </div>
+
+        {/* Card Mastery Rate */}
+        <div className="absolute -top-3 sm:-top-6 -right-3 sm:-right-6 bg-white p-3 sm:p-4 rounded-xl sm:rounded-2xl shadow-xl flex items-center gap-2 sm:gap-4">
+          <div className="bg-[#FFF4ED] p-2 rounded-lg flex-shrink-0">
+            <span className="text-[#F08A4B] text-base sm:text-xl">đŸ“ˆ</span>
+          </div>
+          <div className="min-w-0">
+            <p className="text-[8px] sm:text-[10px] font-bold text-gray-400 uppercase whitespace-nowrap">
+              Mastery Rate
+            </p>
+            <p className="text-lg sm:text-xl font-black text-[#1A2B47]">+84%</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Hero;
+
+
+
+========================================================
+FILE: D:\Vha.JS\Study\src\components\home\InstructorSection.jsx
+========================================================
+import { GraduationCap, FileText } from "lucide-react";
+import { instructors } from "../../data/instructors";
+
+const InstructorSection = () => {
+  return (
+    <section className="py-12 sm:py-16 md:py-20 bg-[#F8FAFC] px-4 sm:px-6 md:px-0">
+      {/* TiĂªu Ä‘á» Section */}
+      <div className="text-center mb-8 sm:mb-12 md:mb-16 container mx-auto">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#1A2B47] mb-3 sm:mb-4">
+          Academic Leadership
+        </h2>
+        <p className="text-gray-500 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed px-2 sm:px-0">
+          Learn from PhDs and industry experts who bridge the gap between theory
+          and application.
+        </p>
+      </div>
+
+      {/* Danh sĂ¡ch cĂ¡c tháº» giáº£ng viĂªn */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8 container mx-auto">
+        {instructors.map((person, index) => (
+          <div
+            key={index}
+            className="bg-white p-4 sm:p-6 md:p-8 rounded-2xl sm:rounded-3xl md:rounded-[32px] shadow-sm border border-gray-100 flex flex-col items-center text-center hover:shadow-md transition-shadow"
+          >
+            {/* áº¢nh Ä‘áº¡i diá»‡n vá»›i bo gĂ³c Ä‘áº·c trÆ°ng */}
+            <div className="w-24 sm:w-28 md:w-32 h-24 sm:h-28 md:h-32 mb-4 sm:mb-5 md:mb-6 overflow-hidden rounded-xl sm:rounded-2xl bg-gray-100 flex-shrink-0">
+              <img
+                src={person.image}
+                alt={person.name}
+                className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
+              />
+            </div>
+
+            {/* ThĂ´ng tin chi tiáº¿t */}
+            <h3 className="text-lg sm:text-xl md:text-xl font-bold text-[#1A2B47] mb-1">
+              {person.name}
+            </h3>
+            <p className="text-[9px] sm:text-[10px] font-extrabold text-[#F08A4B] tracking-[0.1em] mb-2 sm:mb-4">
+              {person.title}
+            </p>
+            <p className="text-gray-500 text-xs sm:text-sm leading-relaxed mb-6 sm:mb-8 px-1 sm:px-2">
+              {person.description}
+            </p>
+
+            {/* Icons dÆ°á»›i cĂ¹ng */}
+            <div className="flex gap-3 sm:gap-4 mt-auto">
+              <GraduationCap className="w-4 sm:w-5 h-4 sm:h-5 text-gray-300 hover:text-[#1A2B47] cursor-pointer transition-colors" />
+              <FileText className="w-4 sm:w-5 h-4 sm:h-5 text-gray-300 hover:text-[#1A2B47] cursor-pointer transition-colors" />
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+};
+
+export default InstructorSection;
+
+
+
+========================================================
+FILE: D:\Vha.JS\Study\src\components\home\Testimonials.jsx
+========================================================
+import { Star } from "lucide-react";
+
+const Testimonials = () => {
+  const reviews = [
+    {
+      text: "The 3D visualizations for multivariable calculus changed my life. I finally understand the connection between partial derivatives and surface topology.",
+      author: "Alex Thompson",
+      role: "ENGINEERING STUDENT, STANFORD",
+      color: "bg-blue-100",
+    },
+    {
+      text: "Mathematiq provided the rigor I needed for Olympiad prep that other platforms lacked. The feedback loop is instantaneous and highly precise.",
+      author: "Linh Nguyen",
+      role: "IMO BRONZE MEDALIST",
+      color: "bg-orange-100",
+    },
+  ];
+
+  return (
+    <section className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 md:px-0 flex flex-col md:flex-row gap-8 sm:gap-10 md:gap-12 items-start container mx-auto">
+      {/* BĂªn trĂ¡i: TiĂªu Ä‘á» & Rating */}
+      <div className="w-full md:w-1/3">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#1A2B47] mb-3 sm:mb-4">
+          Student Proof
+        </h2>
+        <p className="text-gray-500 text-sm sm:text-base mb-4 sm:mb-6">
+          Real results from our global community of learners.
+        </p>
+        <div className="flex items-center gap-2">
+          <div className="flex text-[#F08A4B]">
+            {[1, 2, 3, 4, 5].map((s) => (
+              <Star
+                key={s}
+                fill="currentColor"
+                className="w-4 sm:w-5 h-4 sm:h-5"
+              />
+            ))}
+          </div>
+          <span className="font-bold text-[#1A2B47] text-sm sm:text-base">
+            4.9/5.0
+          </span>
+        </div>
+      </div>
+
+      {/* BĂªn pháº£i: Danh sĂ¡ch Cards */}
+      <div className="w-full md:w-2/3 grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5 md:gap-6">
+        {reviews.map((rev, i) => (
+          <div
+            key={i}
+            className="bg-white p-4 sm:p-6 md:p-8 rounded-2xl sm:rounded-3xl md:rounded-[32px] shadow-sm border border-gray-50 relative flex flex-col"
+          >
+            <span className="text-4xl sm:text-5xl md:text-6xl text-gray-100 absolute top-2 sm:top-3 md:top-4 left-3 sm:left-4 font-serif">
+              "
+            </span>
+            <p className="text-gray-600 italic mb-4 sm:mb-6 md:mb-8 relative z-10 leading-relaxed text-sm sm:text-base">
+              "{rev.text}"
+            </p>
+            <div className="flex items-center gap-2 sm:gap-3 md:gap-4 mt-auto">
+              <div
+                className={`w-8 sm:w-9 md:w-10 h-8 sm:h-9 md:h-10 rounded-lg flex-shrink-0 ${rev.color}`}
+              ></div>
+              <div className="min-w-0">
+                <p className="font-bold text-[#1A2B47] text-xs sm:text-sm truncate">
+                  {rev.author}
+                </p>
+                <p className="text-[8px] sm:text-[10px] font-bold text-gray-400 uppercase tracking-widest line-clamp-1">
+                  {rev.role}
+                </p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+};
+
+export default Testimonials;
+
+
+
+========================================================
+FILE: D:\Vha.JS\Study\src\components\layout\Header.jsx
+========================================================
+import { Search, Bell } from "lucide-react";
+
+const Header = () => {
+  return (
+    <header className="flex items-center justify-between px-12 py-4 bg-white border-b border-gray-100 shadow-sm">
+      {/* Logo */}
+      <div className="text-2xl font-black text-[#1A2B47] tracking-tight">
+        Mathematiq
+      </div>
+
+      {/* Navigation */}
+      <nav className="flex items-center space-x-10">
+        <a
+          href="#"
+          className="text-[#1A2B47] font-bold border-b-2 border-[#F08A4B] pb-1"
+        >
+          Courses
+        </a>
+        <a
+          href="#"
+          className="text-gray-400 font-medium hover:text-[#1A2B47] transition-colors"
+        >
+          Practice
+        </a>
+        <a
+          href="#"
+          className="text-gray-400 font-medium hover:text-[#1A2B47] transition-colors"
+        >
+          Resources
+        </a>
+        <a
+          href="#"
+          className="text-gray-400 font-medium hover:text-[#1A2B47] transition-colors"
+        >
+          Pricing
+        </a>
+      </nav>
+
+      {/* Actions */}
+      <div className="flex items-center space-x-6">
+        {/* Search Bar */}
+        <div className="relative">
+          <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 w-4 h-4" />
+          <input
+            type="text"
+            placeholder="Search courses."
+            className="bg-[#F3F6F9] pl-10 pr-4 py-2 rounded-md text-sm w-64 focus:outline-none focus:ring-1 focus:ring-blue-200"
+          />
+        </div>
+
+        {/* Bell Icon */}
+        <button className="relative text-[#1A2B47]">
+          <Bell className="w-6 h-6" />
+          <span className="absolute top-0 right-0 block h-2 w-2 rounded-full bg-red-500 ring-2 ring-white"></span>
+        </button>
+
+        {/* Sign In Button */}
+        <button className="bg-[#0A1629] text-white px-8 py-2.5 rounded-md font-semibold hover:bg-opacity-90 transition-all">
+          Sign In
+        </button>
+      </div>
+    </header>
+  );
+};
+
+export default Header;
+
+
+
+========================================================
+FILE: D:\Vha.JS\Study\src\components\layout\MainLayout.jsx
+========================================================
+import Header from "./Header";
+
+const MainLayout = ({ children }) => {
+  return (
+    <div className="min-h-screen bg-[#F8FAFC]">
+      {/* Thanh Header luĂ´n cá»‘ Ä‘á»‹nh á»Ÿ trĂªn */}
+      <Header />
+
+      {/* Pháº§n ná»™i dung thay Ä‘á»•i theo tá»«ng trang */}
+      <main className="container mx-auto px-4 py-8">{children}</main>
+
+      {/* Báº¡n cĂ³ thá»ƒ thĂªm Footer á»Ÿ Ä‘Ă¢y náº¿u cáº§n */}
+    </div>
+  );
+};
+
+export default MainLayout;
+
+
+
+========================================================
+FILE: D:\Vha.JS\Study\src\data\instructors.js
+========================================================
+export const instructors = [
+  {
+    name: "Dr. Sarah Chen",
+    title: "PHD IN NUMBER THEORY",
+    description: "Former MIT professor focusing on cryptographic mathematics.",
+    image: "link_anh_1.jpg",
+  },
+  {
+    name: "Prof. Marcus Vane",
+    title: "APPLIED GEOMETRY",
+    description: "Visualization expert specializing in topological structures.",
+    image: "link_anh_2.jpg",
+  },
+  {
+    name: "Elena Rodriguez",
+    title: "DATA SCIENTIST",
+    description: "Bridging the gap between pure math and machine learning.",
+    image: "link_anh_3.jpg",
+  },
+  {
+    name: "Dr. James Wilson",
+    title: "LOGIC & SET THEORY",
+    description: "Pioneer in adaptive learning pathways for formal logic.",
+    image: "link_anh_4.jpg",
+  },
+];
+
+
+
+========================================================
+FILE: D:\Vha.JS\Study\src\pages\home\HomePage.jsx
+========================================================
+import Hero from "../../components/home/Hero";
+import FeaturedSection from "../../components/home/FeaturedSection";
+import InstructorSection from "../../components/home/InstructorSection";
+import Testimonials from "../../components/home/Testimonials";
+import CTASection from "../../components/home/CTASection";
+
+export default function Home() {
+  return (
+    <div className="space-y-20 pb-20">
+      <Hero />
+      <FeaturedSection />
+      <InstructorSection />
+      <Testimonials />
+      <CTASection />
+    </div>
+  );
+}
+
+
+
+========================================================
+FILE: D:\Vha.JS\Study\src\App.jsx
+========================================================
+import MainLayout from "./components/layout/MainLayout";
+import Home from "./pages/home/HomePage";
+
+function App() {
+  return (
+    <MainLayout>
+      <Home /> {/* Hoáº·c cĂ¡c Route khĂ¡c cá»§a báº¡n */}
+    </MainLayout>
+  );
+}
+
+export default App;
+
+
+
+========================================================
+FILE: D:\Vha.JS\Study\src\main.jsx
+========================================================
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import "./index.css";
+import App from "./App.jsx";
+
+createRoot(document.getElementById("root")).render(
+  <StrictMode>
+    <App />
+  </StrictMode>,
+);
+
+
+
