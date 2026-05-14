@@ -8,9 +8,7 @@ const MainLayout = ({ children }) => {
 
       {/* Main Content - Flexible and responsive */}
       <main className="flex-1 w-full">
-        <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-10 py-6 md:py-8 lg:py-12">
-          {children}
-        </div>
+        <div className="w-full">{children}</div>
       </main>
 
       {/* Optional Footer */}

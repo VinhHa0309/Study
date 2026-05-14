@@ -1,0 +1,1215 @@
+﻿=== FILE: D:\Vha.JS\Study\src\components\home\CourseCard.jsx ===
+import { Plus } from "lucide-react";
+
+const CourseCard = ({
+  title,
+  description,
+  lessons,
+  projects,
+  price,
+  image,
+  variant = "vertical",
+  icon: IconTag,
+}) => {
+  if (variant === "horizontal") {
+    return (
+      <div className="flex flex-col md:flex-row bg-white rounded-2xl md:rounded-3xl overflow-hidden shadow-sm border border-gray-100 col-span-1 md:col-span-2 hover:shadow-md transition-shadow duration-300">
+        {/* Image Section */}
+        <div className="w-full md:w-1/2 relative h-48 md:h-auto">
+          <img src={image} alt={title} className="w-full h-full object-cover" />
+          <div className="absolute top-3 md:top-4 left-3 md:left-4 bg-[#0A1629]/60 backdrop-blur-md px-2 md:px-3 py-1 rounded text-[9px] md:text-[10px] font-bold text-white uppercase tracking-wide">
+            Honors Level
+          </div>
+        </div>
+
+        {/* Content Section */}
+        <div className="w-full md:w-1/2 p-4 md:p-8 flex flex-col justify-between">
+          <div>
+            <h3 className="text-lg md:text-2xl font-bold text-[#1A2B47] mb-2 md:mb-3 line-clamp-2">
+              {title}
+            </h3>
+            <p className="text-gray-500 text-xs md:text-sm leading-relaxed mb-4 md:mb-6 line-clamp-3 md:line-clamp-none">
+              {description}
+            </p>
+
+            {/* Tags */}
+            <div className="flex gap-2 flex-wrap">
+              <span className="bg-gray-100 text-[9px] md:text-[10px] font-bold text-gray-500 px-2 md:px-3 py-1 rounded uppercase whitespace-nowrap">
+                {lessons} Lessons
+              </span>
+              <span className="bg-gray-100 text-[9px] md:text-[10px] font-bold text-gray-500 px-2 md:px-3 py-1 rounded uppercase whitespace-nowrap">
+                {projects} Projects
+              </span>
+            </div>
+          </div>
+
+          {/* Footer Section */}
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4 mt-6 md:mt-8">
+            {/* Students */}
+            <div className="flex -space-x-2">
+              {[1, 2, 3].map((i) => (
+                <div
+                  key={i}
+                  className="w-6 md:w-8 h-6 md:h-8 rounded-full border-2 border-white bg-gray-200 flex-shrink-0"
+                />
+              ))}
+              <span className="pl-2 md:pl-4 text-[8px] md:text-[10px] text-gray-400 font-bold self-center whitespace-nowrap">
+                +2.4k students
+              </span>
+            </div>
+            {/* Price */}
+            <span className="text-lg md:text-xl font-bold text-[#1A2B47] w-full sm:w-auto text-right">
+              ${price}
+            </span>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  // Vertical Variant
+  return (
+    <div className="bg-white p-5 md:p-8 rounded-2xl md:rounded-3xl shadow-sm border border-gray-100 flex flex-col justify-between h-full hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 group">
+      <div>
+        {/* Icon */}
+        <div className="w-9 md:w-10 h-9 md:h-10 bg-[#FFF4ED] rounded-lg flex items-center justify-center text-[#F08A4B] font-bold mb-4 md:mb-6 group-hover:scale-110 transition-transform duration-300">
+          {IconTag}
+        </div>
+
+        {/* Title */}
+        <h3 className="text-base md:text-xl font-bold text-[#1A2B47] mb-2 md:mb-3 line-clamp-2">
+          {title}
+        </h3>
+
+        {/* Description */}
+        <p className="text-gray-500 text-xs md:text-sm leading-relaxed line-clamp-3 md:line-clamp-none">
+          {description}
+        </p>
+      </div>
+
+      {/* Footer */}
+      <div className="flex justify-between items-center mt-8 md:mt-12 gap-3">
+        <span className="text-base md:text-lg font-bold text-[#1A2B47] flex-shrink-0">
+          ${price}
+        </span>
+        <button className="p-2 border border-gray-100 rounded-xl hover:bg-gray-50 hover:border-gray-200 active:scale-95 transition-all duration-200 flex-shrink-0">
+          <Plus className="w-4 md:w-5 h-4 md:h-5 text-gray-400 group-hover:text-gray-600 transition-colors" />
+        </button>
+      </div>
+    </div>
+  );
+};
+
+export default CourseCard;
+
+------------------------------
+
+=== FILE: D:\Vha.JS\Study\src\components\home\CTASection.jsx ===
+const CTASection = () => {
+  return (
+    <section className="py-8 md:py-12 lg:py-16 px-4 md:px-6 lg:px-8">
+      <div className="bg-gradient-to-br from-[#051124] via-[#0a1f2e] to-[#051124] rounded-3xl md:rounded-4xl lg:rounded-[48px] p-8 md:p-12 lg:p-16 text-center relative overflow-hidden group">
+        {/* Glow Effect - Responsive */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 bg-blue-500/15 blur-[80px] md:blur-[100px] lg:blur-[120px] rounded-full opacity-60 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+        {/* Accent Glow */}
+        <div className="absolute -top-20 -right-20 w-40 h-40 md:w-52 md:h-52 bg-cyan-400/5 blur-[60px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+        {/* Content Container */}
+        <div className="relative z-10">
+          {/* Main Heading */}
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 md:mb-6 lg:mb-8 leading-tight">
+            Start Your Mathematical
+            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#FFA24E] to-cyan-400">
+              Journey Today
+            </span>
+          </h2>
+
+          {/* Subheading */}
+          <p className="text-gray-400 text-sm md:text-base lg:text-lg mb-8 md:mb-10 lg:mb-12 max-w-2xl mx-auto leading-relaxed px-2">
+            Join thousands of students mastering complex concepts with precision
+            and clarity. Transform your learning experience starting now.
+          </p>
+
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row justify-center gap-3 md:gap-4 lg:gap-6 flex-wrap">
+            {/* Primary Button */}
+            <button className="bg-[#FFA24E] hover:bg-[#F08A4B] active:scale-95 text-[#051124] font-bold px-6 md:px-8 lg:px-10 py-3 md:py-4 lg:py-5 rounded-lg md:rounded-xl transition-all duration-300 shadow-lg shadow-orange-500/30 hover:shadow-xl hover:shadow-orange-500/40 hover:-translate-y-1 group/btn w-full sm:w-auto">
+              <span className="flex items-center justify-center gap-2">
+                <svg
+                  className="w-5 h-5 md:w-6 md:h-6 group-hover/btn:translate-x-1 transition-transform"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 10 10.293 5.707a1 1 0 010-1.414z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+                Enroll Now
+              </span>
+            </button>
+
+            {/* Secondary Button */}
+            <button className="bg-[#1A2B47] hover:bg-[#243B5E] active:scale-95 text-white font-bold px-6 md:px-8 lg:px-10 py-3 md:py-4 lg:py-5 rounded-lg md:rounded-xl border border-white/20 hover:border-white/40 transition-all duration-300 hover:-translate-y-1 w-full sm:w-auto">
+              <span className="flex items-center justify-center gap-2">
+                <svg
+                  className="w-5 h-5 md:w-6 md:h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"
+                  />
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
+                </svg>
+                Trial Session
+              </span>
+            </button>
+          </div>
+
+          {/* Trust Badge */}
+          <div className="mt-10 md:mt-14 lg:mt-16 pt-8 md:pt-10 border-t border-white/10">
+            <p className="text-gray-500 text-xs md:text-sm font-medium mb-3 md:mb-4">
+              âœ“ Trusted by 2,400+ students worldwide
+            </p>
+            <div className="flex justify-center items-center gap-2 md:gap-3 opacity-70 hover:opacity-100 transition-opacity">
+              <div className="flex -space-x-1">
+                {[...Array(4)].map((_, i) => (
+                  <div
+                    key={i}
+                    className="w-6 h-6 md:w-8 md:h-8 rounded-full border-2 border-[#051124] bg-gradient-to-br from-[#FFA24E] to-cyan-400"
+                    style={{
+                      opacity: 0.8 - i * 0.15,
+                      background: `linear-gradient(135deg, hsl(${30 + i * 20}, 100%, 60%}), hsl(${190 + i * 5}, 100%, 60%})`,
+                    }}
+                  />
+                ))}
+              </div>
+              <span className="text-gray-400 text-xs md:text-sm">
+                And more joining every week
+              </span>
+            </div>
+          </div>
+        </div>
+
+        {/* Decorative Border */}
+        <div className="absolute inset-0 rounded-3xl md:rounded-4xl lg:rounded-[48px] pointer-events-none border border-white/5 group-hover:border-white/10 transition-colors duration-500"></div>
+      </div>
+    </section>
+  );
+};
+
+export default CTASection;
+
+------------------------------
+
+=== FILE: D:\Vha.JS\Study\src\components\home\FeaturedSection.jsx ===
+import CourseCard from "./CourseCard";
+import { ArrowRight, BookOpen, Zap } from "lucide-react";
+
+const FeaturedSection = () => {
+  return (
+    <section className="py-8 md:py-12 lg:py-16 px-4 md:px-6 lg:px-8">
+      {/* Header Section - Responsive */}
+      <div className="mb-8 md:mb-10 lg:mb-16 flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4 sm:gap-6">
+        <div className="flex-1">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#1A2B47] mb-1 md:mb-2 leading-tight">
+            Featured{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F08A4B] via-orange-500 to-[#F08A4B]">
+              Courses
+            </span>
+          </h2>
+          <p className="text-gray-500 text-xs sm:text-sm md:text-base mt-1 md:mt-2">
+            Structured pathways for every mathematical stage.
+          </p>
+        </div>
+
+        {/* View Catalog Button */}
+        <button className="inline-flex items-center justify-center gap-2 px-4 md:px-6 py-2 md:py-2.5 text-[#F08A4B] font-bold text-xs md:text-sm hover:bg-[#F08A4B]/10 rounded-lg transition-all duration-300 group whitespace-nowrap hover:gap-3">
+          View Catalog
+          <ArrowRight className="w-3.5 h-3.5 md:w-4 md:h-4 group-hover:translate-x-1 transition-transform duration-300" />
+        </button>
+      </div>
+
+      {/* Grid Layout - Responsive */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5 lg:gap-6">
+        {/* Large Horizontal Card (Calculus) - col-span-2 */}
+        <div className="md:col-span-2">
+          <CourseCard
+            variant="horizontal"
+            title="The Architecture of Calculus"
+            description="Master limits, derivatives, and integrals through physical visualization and proof-based reasoning."
+            lessons="128"
+            projects="32"
+            price="199.00"
+            image="https://images.unsplash.com/photo-1635070041078-e3fb4fe365c9?w=900&q=80&auto=format&fit=crop"
+          />
+        </div>
+
+        {/* Small Card 1 (Linear Algebra) */}
+        <div className="md:col-span-1">
+          <CourseCard
+            title="Linear Algebra"
+            description="Vector spaces and matrix transformations for data science applications."
+            price="149.00"
+            icon={<Zap className="w-6 h-6" />}
+          />
+        </div>
+
+        {/* Small Card 2 (Statistics) */}
+        <div className="md:col-span-1">
+          <CourseCard
+            title="Statistical Logic"
+            description="Advanced probability and statistical inference for researchers."
+            price="129.00"
+            icon="đŸ“"
+          />
+        </div>
+
+        {/* Banner Competitive Track - col-span-2 on tablet+ */}
+        <div className="col-span-1 md:col-span-2 bg-gradient-to-br from-[#0A1629] via-[#0f1d2d] to-[#051124] rounded-2xl md:rounded-3xl lg:rounded-[32px] p-6 md:p-8 lg:p-10 relative overflow-hidden group border border-white/5 hover:border-white/15 transition-all duration-500">
+          {/* Background Glows */}
+          <div className="absolute top-1/2 right-0 -translate-y-1/2 w-48 md:w-64 lg:w-96 h-48 md:h-64 lg:h-96 bg-amber-500/15 blur-[80px] md:blur-[100px] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          <div className="absolute -left-20 -top-20 w-40 h-40 bg-cyan-400/10 blur-[60px] rounded-full opacity-30 group-hover:opacity-60 transition-opacity duration-500"></div>
+
+          {/* Content Container */}
+          <div className="relative z-10 space-y-3 md:space-y-4 lg:space-y-6 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+            {/* Left Content */}
+            <div className="space-y-3 md:space-y-4 lg:space-y-6 flex-1 max-w-sm md:max-w-md">
+              {/* Badge */}
+              <div className="inline-flex items-center gap-2 px-3 md:px-4 py-1.5 md:py-2 rounded-lg md:rounded-xl bg-amber-500/20 border border-amber-500/40 backdrop-blur-sm group-hover:border-amber-500/60 transition-all duration-300">
+                <span className="text-amber-400 text-xs md:text-sm font-bold">
+                  đŸ†
+                </span>
+                <span className="text-amber-300 text-xs md:text-sm font-bold uppercase tracking-wider">
+                  Competitive
+                </span>
+              </div>
+
+              {/* Title */}
+              <h3 className="text-xl md:text-2xl lg:text-3xl font-bold text-white leading-tight">
+                Join the Competitive Track
+              </h3>
+
+              {/* Description */}
+              <p className="text-gray-400 text-xs md:text-sm lg:text-base leading-relaxed">
+                Preparation for AMC, AIME, and International Mathematical
+                Olympiads with expert guidance.
+              </p>
+
+              {/* Buttons */}
+              <div className="flex flex-col sm:flex-row gap-2 md:gap-3 pt-2 md:pt-4">
+                <button className="bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-700 hover:to-amber-800 active:scale-95 text-white px-4 md:px-6 py-2 md:py-3 rounded-lg md:rounded-xl font-bold text-xs md:text-sm transition-all duration-300 hover:shadow-lg hover:shadow-amber-600/30 flex items-center justify-center gap-2">
+                  <Zap className="w-3.5 h-3.5 md:w-4 md:h-4" />
+                  Start Assessment
+                </button>
+                <button className="bg-white/10 hover:bg-white/20 border border-white/20 hover:border-white/40 text-white px-4 md:px-6 py-2 md:py-3 rounded-lg md:rounded-xl font-bold text-xs md:text-sm transition-all duration-300 flex items-center justify-center gap-2 active:scale-95">
+                  <BookOpen className="w-3.5 h-3.5 md:w-4 md:h-4" />
+                  Details
+                </button>
+              </div>
+
+              {/* Stats - Hidden on mobile, shown on tablet+ */}
+              <div className="hidden md:flex gap-4 md:gap-6 pt-4 md:pt-6 border-t border-white/10">
+                <div className="flex-1">
+                  <p className="text-amber-400 font-bold text-sm md:text-base lg:text-lg">
+                    500+
+                  </p>
+                  <p className="text-gray-500 text-xs md:text-sm">Problems</p>
+                </div>
+                <div className="flex-1">
+                  <p className="text-cyan-400 font-bold text-sm md:text-base lg:text-lg">
+                    12 Weeks
+                  </p>
+                  <p className="text-gray-500 text-xs md:text-sm">Program</p>
+                </div>
+                <div className="flex-1">
+                  <p className="text-white font-bold text-sm md:text-base lg:text-lg">
+                    24/7
+                  </p>
+                  <p className="text-gray-500 text-xs md:text-sm">Support</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Trophy Emoji - Responsive Position */}
+            <div className="absolute md:relative right-4 md:right-0 top-4 md:top-1/2 md:-translate-y-1/2 md:flex-shrink-0 opacity-40 md:opacity-70 group-hover:opacity-100 transition-opacity duration-500 transform md:transform-none">
+              <span className="text-5xl md:text-6xl lg:text-8xl filter drop-shadow-xl inline-block">
+                đŸ†
+              </span>
+            </div>
+          </div>
+
+          {/* Border Glow Effect */}
+          <div className="absolute inset-0 rounded-2xl md:rounded-3xl lg:rounded-[32px] pointer-events-none border border-transparent group-hover:border-amber-500/20 transition-colors duration-500"></div>
+        </div>
+      </div>
+
+      {/* Bottom CTA Section */}
+      <div className="mt-12 md:mt-16 lg:mt-20 p-6 md:p-8 lg:p-10 rounded-2xl md:rounded-3xl bg-gradient-to-r from-[#F08A4B]/5 via-transparent to-cyan-500/5 border border-[#F08A4B]/20 backdrop-blur-sm hover:border-[#F08A4B]/40 transition-all duration-300">
+        <div className="text-center space-y-3 md:space-y-4">
+          <h3 className="text-lg md:text-xl lg:text-2xl font-bold text-[#1A2B47]">
+            Can't decide? Try our recommendation quiz
+          </h3>
+          <p className="text-gray-500 text-xs md:text-sm lg:text-base max-w-2xl mx-auto">
+            Get personalized course suggestions based on your current skills and
+            learning goals
+          </p>
+          <button className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-[#F08A4B] to-orange-500 hover:from-[#F08A4B]/90 hover:to-orange-600 active:scale-95 text-white px-6 md:px-8 py-2.5 md:py-3 rounded-lg md:rounded-xl font-bold text-xs md:text-sm transition-all duration-300 shadow-lg shadow-orange-500/20 hover:shadow-xl hover:shadow-orange-500/30">
+            Take the Quiz
+            <ArrowRight className="w-3.5 h-3.5 md:w-4 md:h-4" />
+          </button>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default FeaturedSection;
+
+------------------------------
+
+=== FILE: D:\Vha.JS\Study\src\components\home\Hero.jsx ===
+import { useState } from "react";
+import { Search, Check, TrendingUp, Users } from "lucide-react";
+
+const lessons = [
+  {
+    id: 1,
+    title: "Giá»›i háº¡n & LiĂªn tá»¥c",
+    chapter: "ChÆ°Æ¡ng 1",
+    duration: "24 phĂºt",
+    status: "done",
+  },
+  {
+    id: 2,
+    title: "Äáº¡o hĂ m & Quy táº¯c Chain",
+    chapter: "ChÆ°Æ¡ng 2",
+    duration: "32 phĂºt",
+    status: "new",
+  },
+  {
+    id: 3,
+    title: "TĂ­ch phĂ¢n & á»¨ng dá»¥ng",
+    chapter: "ChÆ°Æ¡ng 3",
+    duration: "41 phĂºt",
+    status: "upcoming",
+  },
+];
+
+const PILL_STYLES = {
+  done: "bg-emerald-500/15 text-emerald-400 border border-emerald-500/25",
+  new: "bg-orange-500/15 text-orange-300 border border-orange-500/25",
+  upcoming: "bg-slate-500/15 text-slate-400 border border-slate-500/25",
+};
+
+const PILL_LABELS = { done: "Xong", new: "Má»›i", upcoming: "Sáº¯p tá»›i" };
+
+const NUM_STYLES = {
+  done: "bg-emerald-500/15 text-emerald-400",
+  new: "bg-orange-500/15 text-orange-400",
+  upcoming: "bg-slate-500/15 text-slate-400",
+};
+
+export default function Hero() {
+  const [query, setQuery] = useState("");
+
+  return (
+    <div className="w-full bg-[#0D1B2A] font-sans">
+      {/* â”€â”€ decorative layers â”€â”€ */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage:
+            "linear-gradient(rgba(255,255,255,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.025) 1px,transparent 1px)",
+          backgroundSize: "40px 40px",
+        }}
+      />
+      <div
+        className="absolute top-0 right-0 w-96 h-96 rounded-full pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(circle,rgba(240,138,75,0.18) 0%,transparent 70%)",
+        }}
+      />
+      <div
+        className="absolute bottom-0 left-1/3 w-72 h-72 rounded-full pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(circle,rgba(83,74,183,0.15) 0%,transparent 70%)",
+        }}
+      />
+
+      {/* â”€â”€ main grid â”€â”€ */}
+      <section className="relative max-w-6xl mx-auto px-6 sm:px-10 py-16 sm:py-20 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        {/* â•â•â•â•â•â•â•â• LEFT â•â•â•â•â•â•â•â• */}
+        <div className="space-y-7">
+          {/* Badge */}
+          <div className="inline-flex items-center gap-2 bg-orange-500/10 border border-orange-500/30 text-orange-300 text-xs font-semibold tracking-widest uppercase px-4 py-1.5 rounded-full">
+            <span className="w-1.5 h-1.5 bg-orange-400 rounded-full animate-pulse" />
+            Má»›i: Chuá»—i Giáº£i TĂ­ch Äa Biáº¿n
+          </div>
+
+          {/* Title */}
+          <h1
+            className="text-4xl sm:text-5xl font-extrabold text-[#F2EDE6] leading-tight"
+            style={{ fontFamily: "'Playfair Display', serif" }}
+          >
+            ThĂ nh tháº¡o ngĂ´n ngá»¯
+            <br />
+            cá»§a <span className="text-[#F08A4B]">VÅ© Trá»¥</span>
+          </h1>
+
+          {/* Description */}
+          <p className="text-[#8A9BB0] text-base sm:text-lg leading-relaxed max-w-md">
+            Tráº£i nghiá»‡m toĂ¡n há»c chuyĂªn sĂ¢u qua hĂ¬nh áº£nh 3D sá»‘ng Ä‘á»™ng vĂ  bĂ i táº­p
+            tÆ°Æ¡ng tĂ¡c â€” Ä‘Æ°á»£c thiáº¿t káº¿ cho sá»± xuáº¥t sáº¯c há»c thuáº­t.
+          </p>
+
+          {/* Search row */}
+          <div className="flex flex-col sm:flex-row gap-3">
+            <div className="relative flex-1">
+              <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-[#4A5A6B]" />
+              <input
+                type="text"
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+                placeholder="Báº¡n muá»‘n há»c gĂ¬ hĂ´m nay?"
+                className="w-full bg-white/5 border border-white/10 text-[#E8E0D5] placeholder-[#4A5A6B] pl-11 pr-4 py-3.5 rounded-xl text-sm focus:outline-none focus:border-orange-500/50 focus:ring-1 focus:ring-orange-500/30 transition"
+              />
+            </div>
+            <button className="bg-[#F08A4B] hover:bg-[#E07030] active:scale-95 text-white font-semibold text-sm px-7 py-3.5 rounded-xl transition-all whitespace-nowrap">
+              KhĂ¡m phĂ¡
+            </button>
+          </div>
+
+          {/* Stats */}
+          <div className="flex gap-0 pt-2">
+            {[
+              { num: "15k+", label: "Há»c viĂªn" },
+              { num: "200+", label: "Modules" },
+              { num: "98%", label: "HĂ i lĂ²ng" },
+            ].map((s, i) => (
+              <div
+                key={s.label}
+                className={`pr-8 ${i > 0 ? "pl-8 border-l border-white/10" : ""}`}
+              >
+                <p
+                  className="text-2xl sm:text-3xl font-bold text-[#F2EDE6]"
+                  style={{ fontFamily: "'Playfair Display', serif" }}
+                >
+                  {s.num}
+                </p>
+                <p className="text-[10px] font-semibold text-[#4A5A6B] uppercase tracking-widest mt-1">
+                  {s.label}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* â•â•â•â•â•â•â•â• RIGHT â•â•â•â•â•â•â•â• */}
+        <div className="relative">
+          {/* Floating top-right card */}
+          <div className="absolute -top-5 -right-4 z-20 bg-[#1D2E42] border border-white/10 rounded-2xl px-4 py-2.5 flex items-center gap-3 shadow-xl animate-[float_3s_ease-in-out_infinite]">
+            <div className="w-8 h-8 rounded-lg bg-orange-500/15 flex items-center justify-center">
+              <TrendingUp className="w-4 h-4 text-[#F08A4B]" />
+            </div>
+            <div>
+              <p className="text-[9px] font-semibold text-[#4A5A6B] uppercase tracking-widest">
+                Tá»‰ lá»‡ thĂ nh tháº¡o
+              </p>
+              <p className="text-lg font-bold text-[#F2EDE6] leading-tight">
+                +84%
+              </p>
+            </div>
+          </div>
+
+          {/* Main card */}
+          <div className="bg-[#14253A] border border-white/8 rounded-2xl overflow-hidden">
+            {/* Card top â€” formula area */}
+            <div className="relative bg-gradient-to-br from-[#1A2F47] to-[#0D1E30] h-44 flex items-center justify-center overflow-hidden">
+              {/* Decorative rings */}
+              <div className="absolute -top-14 -right-10 w-48 h-48 rounded-full border border-orange-500/15" />
+              <div className="absolute -bottom-8 -left-4 w-28 h-28 rounded-full border border-purple-500/20" />
+              <div className="absolute top-4 left-10 w-14 h-14 rounded-full border border-orange-500/10" />
+
+              {/* Formula */}
+              <div className="relative z-10 bg-white/7 border border-white/12 rounded-xl px-6 py-4 text-center backdrop-blur-sm">
+                <p className="text-[9px] font-semibold text-[#4A5A6B] uppercase tracking-widest mb-2">
+                  CĂ´ng thá»©c ná»•i báº­t
+                </p>
+                <p className="font-mono text-[#F2EDE6] text-base leading-relaxed">
+                  âˆ«<sub>0</sub>
+                  <sup>âˆ</sup> e<sup>âˆ’xÂ²</sup> dx ={" "}
+                  <span className="text-[#F08A4B]">âˆÏ€</span> / 2
+                </p>
+              </div>
+            </div>
+
+            {/* Card body â€” lessons */}
+            <div className="p-5">
+              <p className="text-[9px] font-semibold text-[#4A5A6B] uppercase tracking-widest mb-3">
+                BĂ i há»c gáº§n Ä‘Ă¢y
+              </p>
+              <div className="space-y-2">
+                {lessons.map((lesson) => (
+                  <div
+                    key={lesson.id}
+                    className="flex items-center gap-3 p-3 bg-white/3 border border-white/6 rounded-xl hover:bg-white/7 hover:border-orange-500/25 transition-all cursor-pointer group"
+                  >
+                    {/* Number / check */}
+                    <div
+                      className={`w-7 h-7 rounded-lg flex items-center justify-center flex-shrink-0 text-xs font-bold ${NUM_STYLES[lesson.status]}`}
+                    >
+                      {lesson.status === "done" ? (
+                        <Check className="w-3.5 h-3.5" />
+                      ) : (
+                        String(lesson.id).padStart(2, "0")
+                      )}
+                    </div>
+
+                    {/* Info */}
+                    <div className="flex-1 min-w-0">
+                      <p className="text-sm font-medium text-[#C8D5E3] truncate group-hover:text-[#F2EDE6] transition-colors">
+                        {lesson.title}
+                      </p>
+                      <p className="text-[11px] text-[#4A5A6B] mt-0.5">
+                        {lesson.chapter} Â· {lesson.duration}
+                      </p>
+                    </div>
+
+                    {/* Pill */}
+                    <span
+                      className={`text-[10px] font-semibold px-2.5 py-0.5 rounded-full flex-shrink-0 ${PILL_STYLES[lesson.status]}`}
+                    >
+                      {PILL_LABELS[lesson.status]}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Floating bottom-left card */}
+          <div className="absolute -bottom-4 -left-4 z-20 bg-[#1D2E42] border border-white/10 rounded-2xl px-4 py-2.5 shadow-xl animate-[float2_3.5s_ease-in-out_infinite]">
+            <div className="flex items-center gap-3">
+              <div className="flex">
+                {[
+                  {
+                    initials: "TH",
+                    bg: "bg-[#534AB7]",
+                    text: "text-[#CECBF6]",
+                  },
+                  {
+                    initials: "LN",
+                    bg: "bg-[#0F6E56]",
+                    text: "text-[#9FE1CB]",
+                  },
+                  {
+                    initials: "PQ",
+                    bg: "bg-[#993C1D]",
+                    text: "text-[#F5C4B3]",
+                  },
+                ].map((av, i) => (
+                  <div
+                    key={av.initials}
+                    className={`w-6 h-6 rounded-full border-2 border-[#1D2E42] flex items-center justify-center text-[8px] font-bold ${av.bg} ${av.text} ${i > 0 ? "-ml-1.5" : ""}`}
+                  >
+                    {av.initials}
+                  </div>
+                ))}
+              </div>
+              <p className="text-xs text-[#8A9BB0]">
+                <span className="text-[#E8E0D5] font-semibold">+240</span> Ä‘Ă£
+                tham gia tuáº§n nĂ y
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Keyframe animations via a style tag */}
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&display=swap');
+        @keyframes float  { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-6px)} }
+        @keyframes float2 { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-4px)} }
+      `}</style>
+    </div>
+  );
+}
+
+------------------------------
+
+=== FILE: D:\Vha.JS\Study\src\components\home\InstructorSection.jsx ===
+import { GraduationCap, FileText } from "lucide-react";
+
+const InstructorSection = () => {
+  const instructors = [
+    {
+      name: "Dr. Sarah Chen",
+      title: "PHD IN NUMBER THEORY",
+      description:
+        "Former MIT professor focusing on cryptographic mathematics.",
+      image:
+        "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop",
+    },
+    {
+      name: "Prof. Marcus Vane",
+      title: "APPLIED GEOMETRY",
+      description:
+        "Visualization expert specializing in topological structures.",
+      image:
+        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop",
+    },
+    {
+      name: "Elena Rodriguez",
+      title: "DATA SCIENTIST",
+      description: "Bridging the gap between pure math and machine learning.",
+      image:
+        "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop",
+    },
+    {
+      name: "Dr. James Wilson",
+      title: "LOGIC & SET THEORY",
+      description: "Pioneer in adaptive learning pathways for formal logic.",
+      image:
+        "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop",
+    },
+  ];
+
+  return (
+    <section className="py-8 md:py-12 lg:py-20 bg-[#F8FAFC] px-4 md:px-6 lg:px-8">
+      {/* Header */}
+      <div className="text-center mb-8 md:mb-12 lg:mb-16 max-w-3xl mx-auto">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#1A2B47] mb-2 md:mb-3 lg:mb-4 leading-tight">
+          Academic{" "}
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F08A4B] to-orange-500">
+            Leadership
+          </span>
+        </h2>
+        <p className="text-gray-500 text-xs sm:text-sm md:text-base lg:text-lg leading-relaxed px-2 md:px-0">
+          Learn from PhDs and industry experts who bridge the gap between theory
+          and application.
+        </p>
+      </div>
+
+      {/* Grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5 lg:gap-6 max-w-7xl mx-auto">
+        {instructors.map((person, index) => (
+          <div
+            key={index}
+            className="bg-white p-4 md:p-6 lg:p-8 rounded-2xl md:rounded-3xl lg:rounded-[32px] shadow-sm border border-gray-100 flex flex-col items-center text-center hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group"
+          >
+            {/* Avatar */}
+            <div className="w-20 sm:w-24 md:w-28 lg:w-32 h-20 sm:h-24 md:h-28 lg:h-32 mb-3 md:mb-4 lg:mb-6 overflow-hidden rounded-lg md:rounded-2xl bg-gray-100 flex-shrink-0">
+              <img
+                src={person.image}
+                alt={person.name}
+                className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+              />
+            </div>
+
+            {/* Name */}
+            <h3 className="text-base md:text-lg lg:text-xl font-bold text-[#1A2B47] mb-1 md:mb-2 line-clamp-2">
+              {person.name}
+            </h3>
+
+            {/* Title */}
+            <p className="text-[8px] sm:text-[9px] md:text-[10px] font-extrabold text-[#F08A4B] tracking-[0.1em] mb-2 md:mb-3 lg:mb-4 uppercase">
+              {person.title}
+            </p>
+
+            {/* Description */}
+            <p className="text-gray-500 text-[11px] sm:text-xs md:text-sm lg:text-sm leading-relaxed mb-4 md:mb-6 lg:mb-8 flex-grow px-1">
+              {person.description}
+            </p>
+
+            {/* Icons */}
+            <div className="flex gap-3 md:gap-4 mt-auto opacity-60 group-hover:opacity-100 transition-opacity duration-300">
+              <button className="p-1.5 md:p-2 hover:bg-gray-50 rounded-lg transition-colors">
+                <GraduationCap className="w-4 sm:w-5 h-4 sm:h-5 text-gray-400 hover:text-[#1A2B47] transition-colors" />
+              </button>
+              <button className="p-1.5 md:p-2 hover:bg-gray-50 rounded-lg transition-colors">
+                <FileText className="w-4 sm:w-5 h-4 sm:h-5 text-gray-400 hover:text-[#1A2B47] transition-colors" />
+              </button>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+};
+
+export default InstructorSection;
+
+------------------------------
+
+=== FILE: D:\Vha.JS\Study\src\components\home\Testimonials.jsx ===
+import { Star } from "lucide-react";
+
+const Testimonials = () => {
+  const reviews = [
+    {
+      text: "The 3D visualizations for multivariable calculus changed my life. I finally understand the connection between partial derivatives and surface topology.",
+      author: "Alex Thompson",
+      role: "ENGINEERING STUDENT, STANFORD",
+      color: "bg-blue-100",
+    },
+    {
+      text: "Mathematiq provided the rigor I needed for Olympiad prep that other platforms lacked. The feedback loop is instantaneous and highly precise.",
+      author: "Linh Nguyen",
+      role: "IMO BRONZE MEDALIST",
+      color: "bg-orange-100",
+    },
+  ];
+
+  return (
+    <section className="py-8 md:py-12 lg:py-20 px-4 md:px-6 lg:px-8">
+      <div className="flex flex-col lg:flex-row gap-6 md:gap-8 lg:gap-12 items-start max-w-7xl mx-auto">
+        {/* Left Column - Header & Rating */}
+        <div className="w-full lg:w-1/3">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#1A2B47] mb-2 md:mb-3 lg:mb-4 leading-tight">
+            Student{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F08A4B] to-orange-500">
+              Proof
+            </span>
+          </h2>
+          <p className="text-gray-500 text-xs sm:text-sm md:text-base lg:text-lg mb-4 md:mb-6 lg:mb-8 leading-relaxed">
+            Real results from our global community of learners.
+          </p>
+
+          {/* Rating */}
+          <div className="inline-flex items-center gap-2 md:gap-3 bg-white p-3 md:p-4 rounded-lg md:rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow duration-300">
+            <div className="flex text-[#F08A4B]">
+              {[1, 2, 3, 4, 5].map((s) => (
+                <Star
+                  key={s}
+                  fill="currentColor"
+                  className="w-4 sm:w-5 h-4 sm:h-5"
+                />
+              ))}
+            </div>
+            <span className="font-bold text-[#1A2B47] text-xs md:text-sm lg:text-base whitespace-nowrap">
+              4.9/5.0
+            </span>
+          </div>
+
+          {/* Additional Info */}
+          <div className="mt-6 md:mt-8 lg:mt-12 space-y-2 md:space-y-3">
+            <p className="text-[10px] md:text-xs font-bold text-gray-400 uppercase tracking-widest">
+              âœ“ Trusted Platform
+            </p>
+            <p className="text-[10px] md:text-xs font-bold text-gray-400 uppercase tracking-widest">
+              âœ“ 2,400+ Reviews
+            </p>
+            <p className="text-[10px] md:text-xs font-bold text-gray-400 uppercase tracking-widest">
+              âœ“ 98% Recommend
+            </p>
+          </div>
+        </div>
+
+        {/* Right Column - Review Cards */}
+        <div className="w-full lg:w-2/3 grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-5 lg:gap-6">
+          {reviews.map((rev, i) => (
+            <div
+              key={i}
+              className="bg-white p-4 md:p-6 lg:p-8 rounded-2xl md:rounded-3xl lg:rounded-[32px] shadow-sm border border-gray-100 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col group"
+            >
+              {/* Quote Icon */}
+              <span className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-gray-100 font-serif leading-none mb-2 md:mb-3 lg:mb-4 group-hover:text-[#F08A4B]/20 transition-colors duration-300">
+                "
+              </span>
+
+              {/* Review Text */}
+              <p className="text-gray-600 italic mb-4 md:mb-6 lg:mb-8 leading-relaxed text-xs sm:text-sm md:text-base flex-grow">
+                {rev.text}
+              </p>
+
+              {/* Author Info */}
+              <div className="flex items-center gap-2 md:gap-3 lg:gap-4 mt-auto pt-4 md:pt-6 border-t border-gray-100">
+                <div
+                  className={`w-8 sm:w-10 md:w-12 h-8 sm:h-10 md:h-12 rounded-lg md:rounded-xl flex-shrink-0 ${rev.color}`}
+                ></div>
+                <div className="min-w-0 flex-1">
+                  <p className="font-bold text-[#1A2B47] text-xs sm:text-sm md:text-base truncate group-hover:text-[#F08A4B] transition-colors duration-300">
+                    {rev.author}
+                  </p>
+                  <p className="text-[8px] sm:text-[9px] md:text-[10px] font-bold text-gray-400 uppercase tracking-widest line-clamp-1">
+                    {rev.role}
+                  </p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Testimonials;
+
+------------------------------
+
+=== FILE: D:\Vha.JS\Study\src\components\layout\Header.jsx ===
+import { Search, Bell, Menu, X } from "lucide-react";
+import { useState } from "react";
+
+const Header = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  return (
+    <header className="sticky top-0 z-50 bg-white border-b border-gray-100 shadow-sm">
+      <div className="px-4 md:px-6 lg:px-8 py-3 md:py-4">
+        <div className="flex items-center justify-between gap-4 md:gap-6">
+          {/* Logo */}
+          <div className="text-lg md:text-xl lg:text-2xl font-black text-[#1A2B47] tracking-tight whitespace-nowrap">
+            Mathematiq
+          </div>
+
+          {/* Navigation - Hidden on mobile */}
+          <nav className="hidden md:flex items-center gap-6 lg:gap-10 flex-1 ml-6 lg:ml-12">
+            <a
+              href="#"
+              className="text-[#1A2B47] font-bold text-sm lg:text-base border-b-2 border-[#F08A4B] pb-1 hover:text-[#F08A4B] transition-colors duration-300"
+            >
+              Courses
+            </a>
+            <a
+              href="#"
+              className="text-gray-400 font-medium text-sm lg:text-base hover:text-[#1A2B47] transition-colors duration-300"
+            >
+              Practice
+            </a>
+            <a
+              href="#"
+              className="text-gray-400 font-medium text-sm lg:text-base hover:text-[#1A2B47] transition-colors duration-300"
+            >
+              Resources
+            </a>
+            <a
+              href="#"
+              className="text-gray-400 font-medium text-sm lg:text-base hover:text-[#1A2B47] transition-colors duration-300"
+            >
+              Pricing
+            </a>
+          </nav>
+
+          {/* Right Section */}
+          <div className="flex items-center gap-2 md:gap-3 lg:gap-6 ml-auto">
+            {/* Search - Hidden on mobile, compact on tablet */}
+            <div className="hidden sm:block relative">
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 w-4 h-4" />
+              <input
+                type="text"
+                placeholder="Search courses..."
+                className="bg-[#F3F6F9] pl-10 pr-3 md:pr-4 py-2 rounded-lg text-xs md:text-sm w-40 md:w-44 lg:w-64 focus:outline-none focus:ring-2 focus:ring-[#F08A4B]/20 transition-all duration-300"
+              />
+            </div>
+
+            {/* Bell Icon */}
+            <button className="relative text-[#1A2B47] p-2 hover:bg-gray-50 rounded-lg transition-colors duration-300 hidden sm:block">
+              <Bell className="w-5 h-5 md:w-6 md:h-6" />
+              <span className="absolute top-1.5 right-1.5 block w-2 h-2 rounded-full bg-red-500 ring-2 ring-white"></span>
+            </button>
+
+            {/* Sign In Button - Hidden on mobile */}
+            <button className="hidden sm:block bg-[#0A1629] text-white px-4 md:px-6 lg:px-8 py-2 md:py-2.5 rounded-lg md:rounded-xl font-semibold text-xs md:text-sm hover:bg-opacity-90 hover:shadow-lg transition-all duration-300 active:scale-95">
+              Sign In
+            </button>
+
+            {/* Mobile Menu Button */}
+            <button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="md:hidden p-2 hover:bg-gray-50 rounded-lg transition-colors duration-300"
+            >
+              {isMenuOpen ? (
+                <X className="w-6 h-6 text-[#1A2B47]" />
+              ) : (
+                <Menu className="w-6 h-6 text-[#1A2B47]" />
+              )}
+            </button>
+          </div>
+        </div>
+
+        {/* Mobile Menu */}
+        {isMenuOpen && (
+          <nav className="md:hidden mt-4 pb-4 space-y-3 border-t border-gray-100 pt-4 animate-in fade-in slide-in-from-top-2">
+            <a
+              href="#"
+              className="block text-[#1A2B47] font-bold text-sm py-2 hover:text-[#F08A4B] transition-colors duration-300"
+            >
+              Courses
+            </a>
+            <a
+              href="#"
+              className="block text-gray-400 font-medium text-sm py-2 hover:text-[#1A2B47] transition-colors duration-300"
+            >
+              Practice
+            </a>
+            <a
+              href="#"
+              className="block text-gray-400 font-medium text-sm py-2 hover:text-[#1A2B47] transition-colors duration-300"
+            >
+              Resources
+            </a>
+            <a
+              href="#"
+              className="block text-gray-400 font-medium text-sm py-2 hover:text-[#1A2B47] transition-colors duration-300"
+            >
+              Pricing
+            </a>
+
+            {/* Mobile Search */}
+            <div className="relative mt-4 pt-4 border-t border-gray-100">
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 w-4 h-4" />
+              <input
+                type="text"
+                placeholder="Search courses..."
+                className="w-full bg-[#F3F6F9] pl-10 pr-3 py-2 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#F08A4B]/20 transition-all duration-300"
+              />
+            </div>
+
+            {/* Mobile Sign In */}
+            <button className="w-full bg-[#0A1629] text-white px-4 py-2.5 rounded-lg font-semibold text-sm hover:bg-opacity-90 transition-all duration-300 mt-4">
+              Sign In
+            </button>
+          </nav>
+        )}
+      </div>
+    </header>
+  );
+};
+
+export default Header;
+
+------------------------------
+
+=== FILE: D:\Vha.JS\Study\src\components\layout\MainLayout.jsx ===
+import Header from "./Header";
+
+const MainLayout = ({ children }) => {
+  return (
+    <div className="min-h-screen bg-[#F8FAFC] flex flex-col">
+      {/* Header - Fixed at top */}
+      <Header />
+
+      {/* Main Content - Flexible and responsive */}
+      <main className="flex-1 w-full">
+        <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-10 py-6 md:py-8 lg:py-12">
+          {children}
+        </div>
+      </main>
+
+      {/* Optional Footer */}
+      <footer className="w-full border-t border-gray-100 bg-white mt-12 md:mt-16 lg:mt-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-10 py-8 md:py-10 lg:py-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 mb-8 md:mb-10">
+            {/* Company Info */}
+            <div className="space-y-3">
+              <h4 className="font-bold text-[#1A2B47] text-sm md:text-base">
+                Mathematiq
+              </h4>
+              <p className="text-gray-500 text-xs md:text-sm leading-relaxed">
+                Master mathematics through immersive learning experiences.
+              </p>
+            </div>
+
+            {/* Product Links */}
+            <div className="space-y-3">
+              <h4 className="font-bold text-[#1A2B47] text-xs md:text-sm uppercase tracking-wider">
+                Product
+              </h4>
+              <ul className="space-y-2">
+                <li>
+                  <a
+                    href="#"
+                    className="text-gray-500 text-xs md:text-sm hover:text-[#1A2B47] transition-colors"
+                  >
+                    Courses
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className="text-gray-500 text-xs md:text-sm hover:text-[#1A2B47] transition-colors"
+                  >
+                    Practice
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className="text-gray-500 text-xs md:text-sm hover:text-[#1A2B47] transition-colors"
+                  >
+                    Premium
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            {/* Resources Links */}
+            <div className="space-y-3">
+              <h4 className="font-bold text-[#1A2B47] text-xs md:text-sm uppercase tracking-wider">
+                Resources
+              </h4>
+              <ul className="space-y-2">
+                <li>
+                  <a
+                    href="#"
+                    className="text-gray-500 text-xs md:text-sm hover:text-[#1A2B47] transition-colors"
+                  >
+                    Blog
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className="text-gray-500 text-xs md:text-sm hover:text-[#1A2B47] transition-colors"
+                  >
+                    Docs
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className="text-gray-500 text-xs md:text-sm hover:text-[#1A2B47] transition-colors"
+                  >
+                    Support
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            {/* Legal Links */}
+            <div className="space-y-3">
+              <h4 className="font-bold text-[#1A2B47] text-xs md:text-sm uppercase tracking-wider">
+                Legal
+              </h4>
+              <ul className="space-y-2">
+                <li>
+                  <a
+                    href="#"
+                    className="text-gray-500 text-xs md:text-sm hover:text-[#1A2B47] transition-colors"
+                  >
+                    Privacy
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className="text-gray-500 text-xs md:text-sm hover:text-[#1A2B47] transition-colors"
+                  >
+                    Terms
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className="text-gray-500 text-xs md:text-sm hover:text-[#1A2B47] transition-colors"
+                  >
+                    Contact
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Bottom Divider */}
+          <div className="border-t border-gray-100 pt-6 md:pt-8">
+            <p className="text-gray-400 text-xs md:text-sm text-center">
+              Â© 2024 Mathematiq. All rights reserved.
+            </p>
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
+};
+
+export default MainLayout;
+
+------------------------------
+
+=== FILE: D:\Vha.JS\Study\src\pages\home\HomePage.jsx ===
+import Hero from "../../components/home/Hero";
+import FeaturedSection from "../../components/home/FeaturedSection";
+import InstructorSection from "../../components/home/InstructorSection";
+import Testimonials from "../../components/home/Testimonials";
+import CTASection from "../../components/home/CTASection";
+
+export default function HomePage() {
+  return (
+    <div className="space-y-12 md:space-y-16 lg:space-y-20 pb-12 md:pb-16 lg:pb-20">
+      {/* Hero Section */}
+      <div>
+        <Hero />
+      </div>
+
+      {/* Featured Courses Section */}
+      <div>
+        <FeaturedSection />
+      </div>
+
+      {/* Instructors Section */}
+      <div>
+        <InstructorSection />
+      </div>
+
+      {/* Testimonials Section */}
+      <div>
+        <Testimonials />
+      </div>
+
+      {/* CTA Section */}
+      <div>
+        <CTASection />
+      </div>
+    </div>
+  );
+}
+
+------------------------------
+
+=== FILE: D:\Vha.JS\Study\src\App.jsx ===
+import MainLayout from "./components/layout/MainLayout";
+import Home from "./pages/home/HomePage";
+
+function App() {
+  return (
+    <MainLayout>
+      <Home /> {/* Hoáº·c cĂ¡c Route khĂ¡c cá»§a báº¡n */}
+    </MainLayout>
+  );
+}
+
+export default App;
+
+------------------------------
+
+=== FILE: D:\Vha.JS\Study\src\main.jsx ===
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import "./index.css";
+import App from "./App.jsx";
+
+createRoot(document.getElementById("root")).render(
+  <StrictMode>
+    <App />
+  </StrictMode>,
+);
+
+------------------------------
+
