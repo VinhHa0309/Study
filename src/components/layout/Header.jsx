@@ -5,7 +5,7 @@ import { Link, useLocation } from "react-router-dom"; // Thêm useLocation để
 const NAV_LINKS = [
   { label: "Khoá học", path: "/courses" },
   { label: "Luyện tập", path: "/practice" },
-  { label: "Tài nguyên", path: "/resources" },
+  { label: "Tài Liệu", path: "/resources" },
   { label: "Bảng giá", path: "/pricing" },
 ];
 
@@ -109,7 +109,6 @@ export default function Header() {
             </button>
           </div>
         </div>
-
         {/* ── Mobile Dropdown ── */}
         {isMenuOpen && (
           <div className="md:hidden border-t border-[#F2EDE6] bg-white px-5 pb-5 pt-4 space-y-1 shadow-xl">

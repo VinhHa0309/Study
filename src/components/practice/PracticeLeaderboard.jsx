@@ -1,27 +1,7 @@
 import { Trophy } from "lucide-react";
+import { leaderboardUsers } from "../../data/practiceLeaderboard";
 
 export default function PracticeLeaderboard() {
-  const users = [
-    {
-      rank: 1,
-      name: "Hoang Nguyen",
-      xp: "12,450 XP",
-      img: "https://i.pravatar.cc/150?u=1",
-    },
-    {
-      rank: 2,
-      name: "Minh Anh",
-      xp: "10,890 XP",
-      img: "https://i.pravatar.cc/150?u=2",
-    },
-    {
-      rank: 3,
-      name: "Quoc Huy",
-      xp: "9,420 XP",
-      img: "https://i.pravatar.cc/150?u=3",
-    },
-  ];
-
   return (
     <div className="flex flex-col lg:flex-row gap-6 md:gap-8">
       {/* Weekly Leaderboard - Chiếm hết chiều rộng trên Mobile */}
@@ -30,7 +10,7 @@ export default function PracticeLeaderboard() {
           Weekly Leaderboard
         </h3>
         <div className="space-y-3">
-          {users.map((u, i) => (
+          {leaderboardUsers.map((u, i) => (
             <div
               key={i}
               className="flex items-center justify-between p-3 md:p-4 rounded-2xl hover:bg-slate-50 transition-all border border-transparent hover:border-slate-100"

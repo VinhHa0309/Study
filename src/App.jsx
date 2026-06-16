@@ -5,6 +5,7 @@ import AuthPage from "./pages/auth/AuthPage";
 import CourseListPage from "./pages/courselist/CourseListPage";
 import PracticePage from "./pages/practice/PracticePage";
 import PracticePlayerPage from "./pages/practice-player/PracticePlayerPage";
+import DocumentPage from "./pages/document/DocumentPage";
 
 function App() {
   return (
@@ -29,6 +30,10 @@ function App() {
 
                 {/* Trang đấu trường luyện tập */}
                 <Route path="/practice" element={<PracticePage />} />
+
+                {/* Trang thư viện tài liệu */}
+                <Route path="/resources" element={<DocumentPage />} />
+                <Route path="/document" element={<DocumentPage />} />
 
                 {/* Bạn có thể thêm các trang như Profile, Settings... vào đây sau này */}
               </Routes>

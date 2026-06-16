@@ -1,29 +1,7 @@
 import { useState } from "react";
 import { Search, Check, TrendingUp, Users } from "lucide-react";
 
-const lessons = [
-  {
-    id: 1,
-    title: "Giới hạn & Liên tục",
-    chapter: "Chương 1",
-    duration: "24 phút",
-    status: "done",
-  },
-  {
-    id: 2,
-    title: "Đạo hàm & Quy tắc Chain",
-    chapter: "Chương 2",
-    duration: "32 phút",
-    status: "new",
-  },
-  {
-    id: 3,
-    title: "Tích phân & Ứng dụng",
-    chapter: "Chương 3",
-    duration: "41 phút",
-    status: "upcoming",
-  },
-];
+import { heroLessons } from "../../data/heroLessons";
 
 const PILL_STYLES = {
   done: "bg-emerald-500/15 text-emerald-400 border border-emerald-500/25",
@@ -181,7 +159,7 @@ export default function Hero() {
                 Bài học gần đây
               </p>
               <div className="space-y-2">
-                {lessons.map((lesson) => (
+                {heroLessons.map((lesson) => (
                   <div
                     key={lesson.id}
                     className="flex items-center gap-3 p-3 bg-white/3 border border-white/6 rounded-xl hover:bg-white/7 hover:border-orange-500/25 transition-all cursor-pointer group"

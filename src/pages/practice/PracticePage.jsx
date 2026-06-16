@@ -2,33 +2,7 @@ import PracticeStatCards from "../../components/practice/PracticeStatCards";
 import PracticeSmartBanner from "../../components/practice/PracticeSmartBanner";
 import PracticeTopicCard from "../../components/practice/PracticeTopicCard";
 import PracticeLeaderboard from "../../components/practice/PracticeLeaderboard";
-
-const TOPICS = [
-  {
-    name: "Algebra",
-    desc: "Linear equations, polynomials, and complex functions.",
-    progress: 75,
-    icon: "🔢",
-  },
-  {
-    name: "Geometry",
-    desc: "Euclidean geometry, trigonometry, and spatial logic.",
-    progress: 40,
-    icon: "📐",
-  },
-  {
-    name: "Calculus",
-    desc: "Derivatives, integrals, and differential equations.",
-    progress: 20,
-    icon: "📈",
-  },
-  {
-    name: "Statistics",
-    desc: "Probability distributions and data analysis.",
-    progress: 60,
-    icon: "📊",
-  },
-];
+import { practiceTopics } from "../../data/practiceTopics";
 
 export default function PracticePage() {
   return (
@@ -55,7 +29,7 @@ export default function PracticePage() {
           </button>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {TOPICS.map((t, i) => (
+          {practiceTopics.map((t, i) => (
             <PracticeTopicCard key={i} {...t} />
           ))}
         </div>

@@ -9,34 +9,12 @@ import {
   Code,
 } from "lucide-react";
 
-/* ─── data ─────────────────────────────────────────────── */
-const SMALL_CARDS = [
-  {
-    icon: <Triangle className="w-5 h-5 text-[#F08A4B]" />,
-    title: "Đại Số Tuyến Tính",
-    desc: "Không gian vector và biến đổi ma trận cho ứng dụng khoa học dữ liệu.",
-    price: "$149",
-  },
-  {
-    icon: <BarChart2 className="w-5 h-5 text-[#F08A4B]" />,
-    title: "Logic Thống Kê",
-    desc: "Xác suất nâng cao và suy luận thống kê dành cho nhà nghiên cứu.",
-    price: "$129",
-  },
-];
+import { smallCards, compStats, studentStats } from "../../data/featured";
 
-const COMP_STATS = [
-  { num: "500+", label: "Bài luyện" },
-  { num: "12 tuần", label: "Chương trình" },
-  { num: "24/7", label: "Hỗ trợ" },
-];
-
-const STUDENT_STATS = [
-  { num: "15k+", label: "Học viên", orange: true },
-  { num: "98%", label: "Hài lòng", orange: false },
-  { num: "200+", label: "Modules", orange: true },
-  { num: "4.9", label: "Đánh giá", orange: false },
-];
+const iconMap = {
+  Triangle: <Triangle className="w-5 h-5 text-[#F08A4B]" />,
+  BarChart2: <BarChart2 className="w-5 h-5 text-[#F08A4B]" />,
+};
 
 /* ─── sub-components ────────────────────────────────────── */
 function SmallCard({ icon, title, desc, price }) {
@@ -137,8 +115,8 @@ export default function FeaturedSection() {
 
         {/* ── Small cards column ── */}
         <div className="md:col-span-1 flex flex-col gap-4">
-          {SMALL_CARDS.map((c) => (
-            <SmallCard key={c.title} {...c} />
+          {smallCards.map((c) => (
+            <SmallCard key={c.title} {...c} icon={iconMap[c.iconName]} />
           ))}
         </div>
 
@@ -151,7 +129,7 @@ export default function FeaturedSection() {
             Kết quả học viên
           </p>
           <div className="grid grid-cols-2 gap-y-5">
-            {STUDENT_STATS.map((s, i) => (
+            {studentStats.map((s, i) => (
               <div
                 key={s.label}
                 className={i % 2 === 1 ? "pl-5 border-l border-[#F2EDE6]" : ""}
@@ -202,7 +180,7 @@ export default function FeaturedSection() {
 
           {/* stat pills */}
           <div className="flex sm:flex-col gap-3 relative z-10 flex-shrink-0">
-            {COMP_STATS.map((s) => (
+            {compStats.map((s) => (
               <div
                 key={s.label}
                 className="bg-white/7 border border-white/10 rounded-xl px-4 py-2.5 min-w-[90px]"

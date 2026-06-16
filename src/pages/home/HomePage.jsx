@@ -8,29 +8,19 @@ export default function HomePage() {
   return (
     <div className="space-y-12 md:space-y-16 lg:space-y-20 pb-12 md:pb-16 lg:pb-20">
       {/* Hero Section */}
-      <div>
-        <Hero />
-      </div>
+      <Hero />
 
       {/* Featured Courses Section */}
-      <div>
-        <FeaturedSection />
-      </div>
+      <FeaturedSection />
 
       {/* Instructors Section */}
-      <div>
-        <InstructorSection />
-      </div>
+      <InstructorSection />
 
       {/* Testimonials Section */}
-      <div>
-        <Testimonials />
-      </div>
+      <Testimonials />
 
       {/* CTA Section */}
-      <div>
-        <CTASection />
-      </div>
+      <CTASection />
     </div>
   );
 }

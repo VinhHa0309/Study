@@ -81,10 +81,10 @@ const CTASection = () => {
                 {[...Array(4)].map((_, i) => (
                   <div
                     key={i}
-                    className="w-6 h-6 md:w-8 md:h-8 rounded-full border-2 border-[#051124] bg-gradient-to-br from-[#FFA24E] to-cyan-400"
+                    className="w-6 h-6 md:w-8 md:h-8 rounded-full border-2 border-[#051124]"
                     style={{
                       opacity: 0.8 - i * 0.15,
-                      background: `linear-gradient(135deg, hsl(${30 + i * 20}, 100%, 60%}), hsl(${190 + i * 5}, 100%, 60%})`,
+                      background: `linear-gradient(135deg, hsl(${30 + i * 20}, 100%, 60%), hsl(${190 + i * 5}, 100%, 60%))`,
                     }}
                   />
                 ))}

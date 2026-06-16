@@ -1,20 +1,7 @@
 import { Star } from "lucide-react";
+import { reviews } from "../../data/testimonials";
 
 const Testimonials = () => {
-  const reviews = [
-    {
-      text: "The 3D visualizations for multivariable calculus changed my life. I finally understand the connection between partial derivatives and surface topology.",
-      author: "Alex Thompson",
-      role: "ENGINEERING STUDENT, STANFORD",
-      color: "bg-blue-100",
-    },
-    {
-      text: "Mathematiq provided the rigor I needed for Olympiad prep that other platforms lacked. The feedback loop is instantaneous and highly precise.",
-      author: "Linh Nguyen",
-      role: "IMO BRONZE MEDALIST",
-      color: "bg-orange-100",
-    },
-  ];
 
   return (
     <section className="py-8 md:py-12 lg:py-20 px-4 md:px-6 lg:px-8">

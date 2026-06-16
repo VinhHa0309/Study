@@ -3,24 +3,7 @@ import PlayerHeader from "../../components/practice-player/PlayerHeader";
 import QuestionArea from "../../components/practice-player/QuestionArea";
 import AnswerOptions from "../../components/practice-player/AnswerOptions";
 import ActionBar from "../../components/practice-player/ActionBar";
-
-// Mock Data tĩnh cho một câu hỏi
-const MOCK_QUESTION = {
-  id: 1,
-  current: 5,
-  total: 15,
-  combo: 12,
-  topic: "Toán Giải Tích",
-  questionText: "Tính tích phân sau:",
-  subText: "Áp dụng phương pháp đổi biến hoặc từng phần.",
-  formula: "∫₀¹ x² dx", // Placeholder cho công thức
-  options: [
-    { id: "A", value: "1/2" },
-    { id: "B", value: "1/3" },
-    { id: "C", value: "1/4" },
-    { id: "D", value: "1" },
-  ],
-};
+import { mockQuestion } from "../../data/practiceQuestions";
 
 export default function PracticePlayerPage() {
   const [selectedAnswer, setSelectedAnswer] = useState(null);
@@ -40,22 +23,22 @@ export default function PracticePlayerPage() {
       <div className="max-w-6xl mx-auto px-5 sm:px-8 py-8 md:py-12">
         {/* 1. Header */}
         <PlayerHeader
-          current={MOCK_QUESTION.current}
-          total={MOCK_QUESTION.total}
-          combo={MOCK_QUESTION.combo}
+          current={mockQuestion.current}
+          total={mockQuestion.total}
+          combo={mockQuestion.combo}
         />
 
         {/* 2. Nội dung câu hỏi */}
         <QuestionArea
-          topic={MOCK_QUESTION.topic}
-          questionText={MOCK_QUESTION.questionText}
-          subText={MOCK_QUESTION.subText}
-          formula={MOCK_QUESTION.formula}
+          topic={mockQuestion.topic}
+          questionText={mockQuestion.questionText}
+          subText={mockQuestion.subText}
+          formula={mockQuestion.formula}
         />
 
         {/* 3. Các đáp án */}
         <AnswerOptions
-          options={MOCK_QUESTION.options}
+          options={mockQuestion.options}
           selectedAnswer={selectedAnswer}
           onSelect={setSelectedAnswer}
         />
