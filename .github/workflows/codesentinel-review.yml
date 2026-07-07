@@ -1,8 +1,6 @@
 name: CodeSentinel AI Review
 
 on:
-  push:
-    branches: [ "main", "master" ]
   pull_request:
     branches: [ "main", "master" ]
 
@@ -12,7 +10,6 @@ permissions:
 
 env:
   CODESENTINEL_API_URL: "https://codesentinel-4xdx.onrender.com"
-  CODESENTINEL_TOKEN: ${{ secrets.CODESENTINEL_TOKEN }}
 
 jobs:
   codesentinel_review:
