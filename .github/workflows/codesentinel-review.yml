@@ -145,7 +145,8 @@ jobs:
                           continue;
                       }
 
-                      throw new Error(`API failed with status ${res.status}`);
+                      const errText = await res.text();
+                      throw new Error(`API failed with status ${res.status} - ${errText}`);
                   } catch (error) {
                       console.error(`Attempt ${attempt} failed: ${error.message}`);
                       if (attempt === 3) {
