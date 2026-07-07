@@ -1,6 +1,8 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const DocumentCard = ({ doc }) => {
+  const navigate = useNavigate();
   // Định nghĩa màu sắc badge dựa trên loại tài liệu để khớp giao diện gốc
   const getBadgeStyles = (tag) => {
     switch (tag) {
@@ -97,7 +99,10 @@ const DocumentCard = ({ doc }) => {
 
       {/* Nhóm nút tương tác */}
       <div className="grid grid-cols-2 gap-2 mt-auto">
-        <button className="py-2 border border-gray-300 rounded-lg text-xs font-semibold text-gray-700 bg-white hover:bg-gray-50 transition-colors">
+        <button
+          onClick={() => navigate(`/document/${doc.id}`)}
+          className="py-2 border border-gray-300 rounded-lg text-xs font-semibold text-gray-700 bg-white hover:bg-gray-50 transition-colors"
+        >
           Xem ngay
         </button>
         <button className="py-2 bg-slate-900 rounded-lg text-xs font-semibold text-white flex items-center justify-center gap-1 hover:bg-slate-800 transition-colors">

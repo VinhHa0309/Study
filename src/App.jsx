@@ -3,9 +3,12 @@ import MainLayout from "./components/layout/MainLayout";
 import HomePage from "./pages/home/HomePage";
 import AuthPage from "./pages/auth/AuthPageTemp";
 import CourseListPage from "./pages/courselist/CourseListPage";
+import PaymentPage from "./pages/courselist/PaymentPage";
 import PracticePage from "./pages/practice/PracticePage";
 import PracticePlayerPage from "./pages/practice-player/PracticePlayerPage";
 import DocumentPage from "./pages/document/DocumentPage";
+import DocumentDetailPage from "./pages/document/DocumentDetailPage";
+import NewsPage from "./pages/news/NewsPage";
 
 function App() {
   return (
@@ -28,12 +31,21 @@ function App() {
                 {/* Trang danh sách khóa học */}
                 <Route path="/courses" element={<CourseListPage />} />
 
+                {/* Trang thanh toán khóa học */}
+                <Route path="/courses/payment" element={<PaymentPage />} />
+
                 {/* Trang đấu trường luyện tập */}
                 <Route path="/practice" element={<PracticePage />} />
 
                 {/* Trang thư viện tài liệu */}
                 <Route path="/resources" element={<DocumentPage />} />
                 <Route path="/document" element={<DocumentPage />} />
+
+                {/* Trang chi tiết tài liệu */}
+                <Route path="/document/:id" element={<DocumentDetailPage />} />
+
+                {/* Trang tin tức */}
+                <Route path="/news" element={<NewsPage />} />
 
                 {/* Bạn có thể thêm các trang như Profile, Settings... vào đây sau này */}
               </Routes>

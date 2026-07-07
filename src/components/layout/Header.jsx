@@ -6,7 +6,7 @@ const NAV_LINKS = [
   { label: "Khoá học", path: "/courses" },
   { label: "Luyện tập", path: "/practice" },
   { label: "Tài Liệu", path: "/resources" },
-  { label: "Bảng giá", path: "/pricing" },
+  { label: "Tin tức", path: "/news" },
 ];
 
 export default function Header() {

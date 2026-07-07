@@ -1,4 +1,5 @@
 import { Clock, PlayCircle, ShoppingCart } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 export default function CourseCard({
   title = "Khóa học Toán nâng cao", // Dữ liệu giả mặc định
@@ -9,6 +10,7 @@ export default function CourseCard({
   category = "Đại số",
   image = "https://placehold.co/600x400/1e293b/white?text=Math+Course",
 }) {
+  const navigate = useNavigate();
   return (
     <div className="bg-white rounded-2xl border border-slate-100 overflow-hidden hover:shadow-xl hover:shadow-slate-200/50 transition-all group cursor-pointer">
       {/* ── Hình ảnh & Tag ── */}
@@ -59,7 +61,10 @@ export default function CourseCard({
               {price.toLocaleString("vi-VN")}đ
             </span>
           </div>
-          <button className="p-2.5 bg-[#1A2B47] text-white rounded-xl hover:bg-[#F08A4B] transition-all active:scale-90 shadow-md">
+          <button
+            onClick={() => navigate("/courses/payment")}
+            className="p-2.5 bg-[#1A2B47] text-white rounded-xl hover:bg-[#F08A4B] transition-all active:scale-90 shadow-md"
+          >
             <ShoppingCart size={18} />
           </button>
         </div>
