@@ -68,11 +68,15 @@ jobs:
 
           function getDiffs() {
               try {
-                  const changedFilesRaw = execSync(`git diff --name-only ${BASE_REF} HEAD`).toString().trim();
+                  const changedFilesRaw = execSync(`git diff --name-status ${BASE_REF} HEAD`).toString().trim();
                   if (!changedFilesRaw) return [];
                   
-                  let changedFiles = changedFilesRaw.split('\n').filter(file => {
-                      if (!file) return false;
+                  let changedFiles = changedFilesRaw.split('\n').map(line => {
+                      const parts = line.split(/\s+/);
+                      return { status: parts[0], file: parts[1] };
+                  }).filter(item => {
+                      if (!item || !item.file) return false;
+                      const file = item.file;
                       if (SKIP_PATTERNS.some(p => file.includes(p))) return false;
                       if (BINARY_EXT.some(ext => file.endsWith(ext))) return false;
                       return true;
@@ -85,14 +89,21 @@ jobs:
 
                   const diffs = [];
                   let totalSize = 0;
-                  for (const file of changedFiles) {
+                  for (const item of changedFiles) {
+                      const file = item.file;
                       try {
                           const diff = execSync(`git diff ${BASE_REF} HEAD -- "${file}"`).toString();
                           if (totalSize + diff.length > MAX_DIFF_SIZE) {
                               console.log(`Max diff size reached (500KB). Skipping remaining files.`);
                               break;
                           }
-                          diffs.push({ file, diff });
+                          
+                          let changeType = 'modified';
+                          if (item.status.startsWith('A')) changeType = 'added';
+                          else if (item.status.startsWith('D')) changeType = 'deleted';
+                          else if (item.status.startsWith('R')) changeType = 'renamed';
+
+                          diffs.push({ filePath: file, changeType, diffContent: diff });
                           totalSize += diff.length;
                       } catch (e) {
                           console.warn(`Could not get diff for ${file}`);
@@ -114,7 +125,12 @@ jobs:
                   return;
               }
 
-              const payload = JSON.stringify({ files: diffs });
+              const payload = JSON.stringify({ 
+                  prNumber: process.env.GITHUB_REF_NAME || 'local',
+                  repository: process.env.GITHUB_REPOSITORY || 'unknown',
+                  commit: process.env.GITHUB_SHA || 'unknown',
+                  files: diffs 
+              });
               let responseData = null;
 
               for (let attempt = 1; attempt <= 3; attempt++) {
